@@ -1,1 +1,338 @@
-aa
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arteva Studio — Where Art Becomes a Story</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ============ CURSOR PAINT DOT (decorative) ============ -->
+<div class="paint-cursor" id="paintCursor"></div>
+
+<!-- ============ NAVBAR ============ -->
+<header class="navbar" id="navbar">
+  <div class="nav-inner">
+    <a href="#home" class="brand">
+      <span class="brand-mark">✦</span>
+      <span class="brand-name">Arteva <em>Studio</em></span>
+    </a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#artists">Artists</a>
+      <a href="#exhibitions">Exhibitions</a>
+      <a href="#workshops">Workshops</a>
+      <a href="#testimonials">Testimonials</a>
+      <a href="#contact" class="nav-cta">Contact Us</a>
+    </nav>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- ============ HOME / HERO ============ -->
+<section class="hero" id="home">
+  <div class="hero-blobs" aria-hidden="true">
+    <div class="blob blob-a"></div>
+    <div class="blob blob-b"></div>
+    <div class="blob blob-c"></div>
+  </div>
+
+  <video class="hero-video" id="heroVideo" autoplay muted loop playsinline
+    poster="https://picsum.photos/seed/artevacanvas/1600/900">
+    <source src="assets/hero-video.mp4" type="video/mp4">
+  </video>
+  <div class="hero-overlay"></div>
+
+  <div class="hero-content">
+    <p class="eyebrow">🎨 Art &amp; Creative Studio</p>
+    <h1 class="hero-title">Arteva <em>Studio</em></h1>
+    <p class="hero-tagline">Where Art Becomes a Story</p>
+    <div class="hero-actions">
+      <a href="#gallery" class="btn btn-primary">View Our Gallery</a>
+      <a href="#contact" class="btn btn-ghost">Commission Art</a>
+    </div>
+  </div>
+  <a href="#about" class="scroll-hint" aria-label="Scroll down">
+    <span></span>
+  </a>
+</section>
+
+<!-- ============ ABOUT ============ -->
+<section class="about" id="about">
+  <div class="section-head">
+    <p class="eyebrow">About Us</p>
+    <h2>About Arteva Studio</h2>
+  </div>
+
+  <div class="about-grid">
+    <div class="about-image">
+      <img src="https://picsum.photos/seed/artevastudioroom/700/850" alt="Arteva Studio workspace">
+      <div class="about-image-tag">Est. by artists, for storytellers</div>
+    </div>
+    <div class="about-copy">
+      <p class="lead">Arteva Studio is a creative art house dedicated to transforming ideas, emotions, and stories into meaningful works of art.</p>
+      <p>Founded by a group of passionate artists, we create original artworks, accept commissions, organize exhibitions, and provide art experiences for everyone.</p>
+
+      <div class="vision-mission">
+        <div class="vm-card">
+          <span class="vm-icon">🌸</span>
+          <h3>Our Vision</h3>
+          <p>To create a space where art connects people, emotions, and stories.</p>
+        </div>
+        <div class="vm-card">
+          <span class="vm-icon">🖌️</span>
+          <h3>Our Mission</h3>
+          <ul>
+            <li>Create meaningful and authentic artworks.</li>
+            <li>Support emerging artists.</li>
+            <li>Make art accessible to everyone.</li>
+            <li>Inspire people through creativity.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider" aria-hidden="true">
+  <svg viewBox="0 0 1200 60" preserveAspectRatio="none"><path d="M0,30 C300,70 900,-10 1200,30 L1200,60 L0,60 Z"></path></svg>
+</div>
+
+<!-- ============ SERVICES ============ -->
+<section class="services" id="services">
+  <div class="section-head">
+    <p class="eyebrow">What We Do</p>
+    <h2>Our Services</h2>
+    <p class="section-sub">Arahkan kursor ke setiap layanan untuk melihat sekilas karyanya.</p>
+  </div>
+
+  <div class="service-list">
+
+    <div class="service-box" style="--svc-img:url('https://picsum.photos/seed/custompainting/500/500');">
+      <div class="service-text">
+        <span class="service-icon">🎨</span>
+        <h3>Custom Painting</h3>
+        <p>Lukisan orisinal yang dibuat khusus sesuai cerita dan gaya yang kamu inginkan.</p>
+      </div>
+      <div class="service-reveal"></div>
+    </div>
+
+    <div class="service-box" style="--svc-img:url('https://picsum.photos/seed/artcommission/500/500');">
+      <div class="service-text">
+        <span class="service-icon">🖌️</span>
+        <h3>Art Commission</h3>
+        <p>Pesan karya seni personal, dari potret hingga ilustrasi konsep favoritmu.</p>
+      </div>
+      <div class="service-reveal"></div>
+    </div>
+
+    <div class="service-box" style="--svc-img:url('https://picsum.photos/seed/artexhibition/500/500');">
+      <div class="service-text">
+        <span class="service-icon">🖼️</span>
+        <h3>Art Exhibition</h3>
+        <p>Kurasi dan penyelenggaraan pameran seni yang hangat dan bermakna.</p>
+      </div>
+      <div class="service-reveal"></div>
+    </div>
+
+    <div class="service-box" style="--svc-img:url('https://picsum.photos/seed/illustration/500/500');">
+      <div class="service-text">
+        <span class="service-icon">✏️</span>
+        <h3>Illustration</h3>
+        <p>Ilustrasi digital maupun tradisional untuk buku, brand, hingga cerita pribadi.</p>
+      </div>
+      <div class="service-reveal"></div>
+    </div>
+
+    <div class="service-box" style="--svc-img:url('https://picsum.photos/seed/artworkshop/500/500');">
+      <div class="service-text">
+        <span class="service-icon">👩‍🎨</span>
+        <h3>Art Workshop</h3>
+        <p>Kelas seni interaktif untuk pemula maupun yang ingin mendalami teknik baru.</p>
+      </div>
+      <div class="service-reveal"></div>
+    </div>
+
+    <div class="service-box" style="--svc-img:url('https://picsum.photos/seed/artgifts/500/500');">
+      <div class="service-text">
+        <span class="service-icon">🎁</span>
+        <h3>Custom Artwork &amp; Art Gifts</h3>
+        <p>Hadiah seni personal yang berkesan untuk orang tersayang.</p>
+      </div>
+      <div class="service-reveal"></div>
+    </div>
+
+  </div>
+</section>
+
+<div class="divider divider-flip" aria-hidden="true">
+  <svg viewBox="0 0 1200 60" preserveAspectRatio="none"><path d="M0,30 C300,70 900,-10 1200,30 L1200,60 L0,60 Z"></path></svg>
+</div>
+
+<!-- ============ GALLERY ============ -->
+<section class="gallery" id="gallery">
+  <div class="section-head">
+    <p class="eyebrow">Our Work</p>
+    <h2>Gallery</h2>
+    <p class="section-sub">Tekan salah satu kategori untuk menjelajahi karya-karya terkait.</p>
+  </div>
+
+  <div class="gallery-grid" id="galleryGrid"></div>
+
+  <div class="gallery-modal" id="galleryModal">
+    <div class="gallery-modal-backdrop" id="galleryBackdrop"></div>
+    <div class="gallery-modal-inner">
+      <button class="gallery-close" id="galleryClose" aria-label="Tutup">✕</button>
+      <button class="gallery-arrow gallery-arrow-left" id="galleryPrev" aria-label="Sebelumnya">‹</button>
+      <figure class="gallery-figure">
+        <img id="galleryImage" src="" alt="">
+        <figcaption id="galleryCaption"></figcaption>
+      </figure>
+      <button class="gallery-arrow gallery-arrow-right" id="galleryNext" aria-label="Berikutnya">›</button>
+      <div class="gallery-dots" id="galleryDots"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ARTISTS ============ -->
+<section class="artists" id="artists">
+  <div class="section-head">
+    <p class="eyebrow">The People</p>
+    <h2>Our Artists</h2>
+    <p class="section-sub">Tekan foto untuk berkenalan lebih dekat dengan tim di balik karya.</p>
+  </div>
+
+  <div class="artist-row" id="artistRow"></div>
+</section>
+
+<div class="divider" aria-hidden="true">
+  <svg viewBox="0 0 1200 60" preserveAspectRatio="none"><path d="M0,30 C300,70 900,-10 1200,30 L1200,60 L0,60 Z"></path></svg>
+</div>
+
+<!-- ============ EXHIBITIONS ============ -->
+<section class="exhibitions" id="exhibitions">
+  <div class="section-head">
+    <p class="eyebrow">Turn the Page</p>
+    <h2>Exhibitions</h2>
+    <p class="section-sub">Setiap sampul adalah buku kecil — tekan untuk membuka ceritanya.</p>
+  </div>
+
+  <div class="book-shelf" id="bookShelf"></div>
+</section>
+
+<!-- ============ WORKSHOPS ============ -->
+<section class="workshops" id="workshops">
+  <div class="section-head">
+    <p class="eyebrow">Learn With Us</p>
+    <h2>Workshops</h2>
+  </div>
+
+  <div class="workshop-list" id="workshopList"></div>
+</section>
+
+<div class="divider divider-flip" aria-hidden="true">
+  <svg viewBox="0 0 1200 60" preserveAspectRatio="none"><path d="M0,30 C300,70 900,-10 1200,30 L1200,60 L0,60 Z"></path></svg>
+</div>
+
+<!-- ============ TESTIMONIALS ============ -->
+<section class="testimonials" id="testimonials">
+  <div class="section-head">
+    <p class="eyebrow">Kind Words</p>
+    <h2>Testimonials</h2>
+  </div>
+
+  <div class="testimonial-wrap">
+    <button class="test-nav test-prev" id="testPrev" aria-label="Sebelumnya">‹</button>
+    <div class="testimonial-track" id="testimonialTrack"></div>
+    <button class="test-nav test-next" id="testNext" aria-label="Berikutnya">›</button>
+  </div>
+  <div class="test-dots" id="testDots"></div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section class="contact" id="contact">
+  <div class="contact-grid">
+    <div class="contact-copy">
+      <p class="eyebrow">Let's Talk</p>
+      <h2>Punya Cerita untuk Diwujudkan?</h2>
+      <p>Ceritakan idemu, dan biar Arteva Studio yang menerjemahkannya jadi karya seni.</p>
+
+      <ul class="contact-info">
+        <li><span>📍</span> Jl. Seni Rupa No. 12, Pontianak, Indonesia</li>
+        <li><span>✉️</span> hello@artevastudio.com</li>
+        <li><span>📞</span> +62 812 3456 7890</li>
+        <li><span>🕒</span> Selasa–Minggu, 10.00 – 19.00</li>
+      </ul>
+
+      <div class="socials">
+        <a href="#" aria-label="Instagram">IG</a>
+        <a href="#" aria-label="TikTok">TT</a>
+        <a href="#" aria-label="Pinterest">PT</a>
+      </div>
+
+      <div class="map-placeholder" aria-hidden="true">
+        <span class="map-pin">📍</span>
+        <span>Studio kami di Pontianak, West Kalimantan</span>
+      </div>
+    </div>
+
+    <form class="contact-form" id="contactForm">
+      <div class="form-row">
+        <label>Nama
+          <input type="text" name="name" placeholder="Nama kamu" required>
+        </label>
+        <label>Email
+          <input type="email" name="email" placeholder="email@kamu.com" required>
+        </label>
+      </div>
+      <label>Topik
+        <select name="topic">
+          <option>Custom Painting</option>
+          <option>Art Commission</option>
+          <option>Art Exhibition</option>
+          <option>Illustration</option>
+          <option>Art Workshop</option>
+          <option>Custom Artwork &amp; Art Gifts</option>
+          <option>Lainnya</option>
+        </select>
+      </label>
+      <label>Pesan
+        <textarea name="message" rows="4" placeholder="Ceritakan idemu di sini..." required></textarea>
+      </label>
+      <button type="submit" class="btn btn-primary btn-block">Kirim Pesan ✦</button>
+      <p class="form-note" id="formNote"></p>
+    </form>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <span class="brand-mark">✦</span>
+      <span class="brand-name">Arteva <em>Studio</em></span>
+      <p>Where Art Becomes a Story</p>
+    </div>
+    <div class="footer-links">
+      <a href="#home">Home</a>
+      <a href="#services">Services</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#exhibitions">Exhibitions</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+  <p class="footer-bottom">© 2026 Arteva Studio. Made with 🎨 &amp; care.</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
