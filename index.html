@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Natalia Agustin — Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400;1,9..144,500&family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ================= TOKENS ================= */
+:root{
+  --pink:        #f6c9dc;
+  --pink-deep:   #e8779e;
+  --pink-soft:   #fdedf3;
+  --pink-pale:   #fff6f9;
+  --white:       #ffffff;
+  --ink:         #3f2530;
+  --ink-soft:    #93727d;
+  --line:        #f3d9e2;
+  --font-display:'Fraunces', serif;
+  --font-body:   'Jost', sans-serif;
+  --radius-lg: 26px;
+  --radius-md: 16px;
+  --shadow: 0 20px 45px -22px rgba(200,90,135,.35);
+  --ease: cubic-bezier(.22,.85,.32,1);
+}
+*,*::before,*::after{ box-sizing:border-box; }
+body{
+  margin:0; font-family:var(--font-body); background:var(--pink-pale); color:var(--ink);
+  line-height:1.6;
+}
+h1,h2,h3{ font-family:var(--font-display); font-weight:600; margin:0; }
+p{ margin:0; }
+a{ text-decoration:none; color:inherit; }
+img{ max-width:100%; display:block; }
+
+/* ================= TOP DECOR ================= */
+.top-glow{
+  position:relative; padding: 5rem 1.5rem 4rem;
+  overflow:hidden; text-align:center;
+}
+.top-glow::before, .top-glow::after{
+  content:''; position:absolute; border-radius:50%; filter:blur(70px); opacity:.55; z-index:0;
+}
+.top-glow::before{ width:320px; height:320px; background:var(--pink); top:-140px; left:-80px; }
+.top-glow::after{ width:280px; height:280px; background:var(--pink-deep); top:-100px; right:-100px; opacity:.35; }
+.eyebrow{
+  position:relative; z-index:1;
+  text-transform:uppercase; letter-spacing:.2em; font-size:.75rem; font-weight:600; color:var(--pink-deep);
+  margin-bottom:.6rem;
+}
+.top-glow h1{ position:relative; z-index:1; font-size:clamp(2.2rem,5vw,3.2rem); }
+.top-glow h1 em{ font-style:italic; color:var(--pink-deep); }
+.top-glow .sub{ position:relative; z-index:1; margin-top:.7rem; color:var(--ink-soft); font-size:1.05rem; }
+
+section{ padding: 2.5rem 1.5rem 5rem; max-width:1120px; margin:0 auto; }
+.section-title{ text-align:center; margin-bottom:2.4rem; }
+.section-title p.eyebrow{ margin-bottom:.4rem; }
+.section-title h2{ font-size:clamp(1.7rem,3.4vw,2.3rem); }
+
+/* ================= IDENTITY CARD ================= */
+.identity-card{
+  background:var(--white); border:1px solid var(--line); border-radius:var(--radius-lg);
+  box-shadow:var(--shadow); padding:2.6rem; display:grid; grid-template-columns:auto 1fr; gap:2.4rem;
+  margin-top:-2rem; position:relative; z-index:2;
+}
+.identity-photo{
+  width:150px; height:150px; border-radius:50%; overflow:hidden; flex-shrink:0;
+  border:5px solid var(--pink-soft); box-shadow:var(--shadow);
+}
+.identity-photo img{ width:100%; height:100%; object-fit:cover; }
+.identity-name{ font-size:1.9rem; }
+.identity-role{ color:var(--pink-deep); font-weight:600; font-size:.95rem; margin-top:.3rem; }
+.identity-location{ color:var(--ink-soft); font-size:.88rem; margin-top:.2rem; }
+.identity-bio{ margin-top:1.1rem; color:var(--ink-soft); font-size:.95rem; max-width:560px; }
+
+.identity-block{ margin-top:1.6rem; }
+.identity-block h3{
+  font-size:.78rem; text-transform:uppercase; letter-spacing:.14em; color:var(--pink-deep);
+  margin-bottom:.7rem; font-family:var(--font-body); font-weight:700;
+}
+.edu-item{ display:flex; gap:.9rem; padding:.55rem 0; border-bottom:1px dashed var(--line); }
+.edu-item:last-child{ border-bottom:none; }
+.edu-dot{ color:var(--pink-deep); flex-shrink:0; margin-top:.25rem; }
+.edu-school{ font-weight:600; font-size:.95rem; }
+.edu-major{ font-size:.86rem; color:var(--ink-soft); }
+.edu-year{ font-size:.78rem; color:var(--pink-deep); font-weight:600; margin-top:.15rem; }
+
+.identity-contact{ display:flex; flex-wrap:wrap; gap:.8rem; margin-top:1.6rem; }
+.contact-chip{
+  display:flex; align-items:center; gap:.5rem;
+  background:var(--pink-soft); border-radius:999px; padding:.55rem 1.1rem;
+  font-size:.85rem; font-weight:500; transition:background .3s,transform .3s;
+}
+.contact-chip:hover{ background:var(--pink-deep); color:var(--white); transform:translateY(-2px); }
+
+@media (max-width:640px){
+  .identity-card{ grid-template-columns:1fr; text-align:center; padding:2rem 1.4rem; }
+  .identity-photo{ margin:0 auto; }
+  .edu-item{ text-align:left; }
+  .identity-contact{ justify-content:center; }
+}
+
+/* ================= PROJECT GALLERY (auto from GitHub) ================= */
+.project-grid, .work-grid{
+  display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:1.6rem;
+}
+.project-card{
+  background:var(--white); border:1px solid var(--line); border-radius:var(--radius-md);
+  overflow:hidden; box-shadow:0 14px 30px -20px rgba(200,90,135,.35);
+  transition:transform .35s var(--ease), box-shadow .35s var(--ease);
+  display:flex; flex-direction:column;
+}
+.project-card:hover{ transform:translateY(-6px); box-shadow:var(--shadow); }
+.project-thumb{
+  aspect-ratio:16/10; background:var(--pink-soft); overflow:hidden; position:relative;
+}
+.project-thumb img{ width:100%; height:100%; object-fit:cover; object-position:top; }
+.project-thumb .thumb-fallback{
+  position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
+  font-family:var(--font-display); font-style:italic; color:var(--pink-deep); font-size:1.1rem; text-align:center; padding:1rem;
+  background:linear-gradient(135deg,var(--pink-soft),var(--pink));
+}
+.project-body{ padding:1.2rem 1.3rem 1.4rem; display:flex; flex-direction:column; gap:.6rem; flex:1; }
+.project-body h3{ font-size:1.05rem; text-transform:capitalize; }
+.project-body p{ font-size:.82rem; color:var(--ink-soft); flex:1; }
+.project-links{ display:flex; gap:.6rem; margin-top:.3rem; }
+.project-links a{
+  font-size:.8rem; font-weight:600; padding:.5rem .95rem; border-radius:999px;
+  transition:background .3s,color .3s,transform .3s;
+}
+.link-live{ background:var(--pink-deep); color:var(--white); }
+.link-live:hover{ background:var(--ink); transform:translateY(-2px); }
+.link-code{ background:var(--pink-soft); color:var(--pink-deep); }
+.link-code:hover{ background:var(--pink); transform:translateY(-2px); }
+
+.gallery-status{
+  text-align:center; color:var(--ink-soft); font-size:.9rem; padding:1.5rem 0; grid-column:1/-1;
+}
+
+/* ================= MANUAL TEMPLATE GALLERY ================= */
+.work-grid .project-card.template{ border-style:dashed; border-color:var(--pink); }
+.template .project-thumb{
+  display:flex; align-items:center; justify-content:center;
+  background:repeating-linear-gradient(45deg, var(--pink-soft), var(--pink-soft) 10px, var(--pink-pale) 10px, var(--pink-pale) 20px);
+}
+.template .project-thumb span{ color:var(--pink-deep); font-size:.8rem; font-weight:600; }
+.template .project-body h3{ color:var(--ink-soft); font-style:italic; }
+.section-note{ text-align:center; color:var(--ink-soft); font-size:.85rem; margin-top:-1.4rem; margin-bottom:2.2rem; }
+
+/* ================= FOOTER ================= */
+.footer{
+  text-align:center; padding:2.4rem 1.5rem; color:var(--ink-soft); font-size:.85rem;
+  border-top:1px solid var(--line);
+}
+.footer em{ color:var(--pink-deep); font-style:italic; }
+</style>
+</head>
+<body>
+
+<div class="top-glow">
+  <p class="eyebrow">Portfolio</p>
+  <h1>Natalia <em>Agustin</em></h1>
+  <p class="sub">Freelance Creative — Singkawang, Indonesia</p>
+</div>
+
+<section>
+  <!-- ================= IDENTITY CARD ================= -->
+  <div class="identity-card">
+    <div class="identity-photo">
+      <img src="https://picsum.photos/seed/natalia-agustin/300/300" alt="Natalia Agustin">
+    </div>
+    <div>
+      <h2 class="identity-name">Natalia Agustin</h2>
+      <p class="identity-role">Freelance Creative</p>
+      <p class="identity-location">📍 Singkawang, West Kalimantan, Indonesia</p>
+      <p class="identity-bio">
+        Natalia is a freelance creative based in Singkawang, currently studying Information Systems
+        at Universitas Buddhi Dharma. She enjoys turning ideas into clean, expressive digital work —
+        from small personal websites to visual projects — and is always curious to learn something new.
+      </p>
+
+      <div class="identity-block">
+        <h3>Education</h3>
+        <div class="edu-item">
+          <span class="edu-dot">✦</span>
+          <div>
+            <div class="edu-school">Universitas Buddhi Dharma</div>
+            <div class="edu-major">Information Systems (Sistem Informasi)</div>
+            <div class="edu-year">2024 — Present</div>
+          </div>
+        </div>
+        <div class="edu-item">
+          <span class="edu-dot">✦</span>
+          <div>
+            <div class="edu-school">SMAS Asoka Singkawang</div>
+            <div class="edu-major">Mathematics &amp; Natural Sciences (MIA)</div>
+            <div class="edu-year">2021 — 2024</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="identity-contact">
+        <a class="contact-chip" href="mailto:fazuraananta125@gmail.com">✉️ fazuraananta125@gmail.com</a>
+        <a class="contact-chip" href="https://instagram.com/whiteeswan01" target="_blank" rel="noopener">📷 @whiteeswan01</a>
+        <a class="contact-chip" href="https://github.com/Nataliaagustin01" target="_blank" rel="noopener">🖥️ Nataliaagustin01</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= AUTO GALLERY FROM GITHUB REPO ================= -->
+<section id="github-projects">
+  <div class="section-title">
+    <p class="eyebrow">From My GitHub</p>
+    <h2>Website Projects</h2>
+  </div>
+  <div class="project-grid" id="projectGrid">
+    <p class="gallery-status" id="galleryStatus">Loading projects from GitHub…</p>
+  </div>
+</section>
+
+<!-- ================= MANUAL TEMPLATE GALLERY ================= -->
+<section id="other-works">
+  <div class="section-title">
+    <p class="eyebrow">More Work</p>
+    <h2>Other Projects</h2>
+  </div>
+  <p class="section-note">Kartu di bawah ini template kosong — isi manual src gambar, judul, dan link sesuai kebutuhanmu.</p>
+
+  <div class="work-grid">
+    <!-- TEMPLATE CARD 1 — ganti src, judul, deskripsi, dan href -->
+    <div class="project-card template">
+      <div class="project-thumb"><span>Isi gambar di sini</span></div>
+      <div class="project-body">
+        <h3>Nama Project</h3>
+        <p>Deskripsi singkat project kamu di sini.</p>
+        <div class="project-links">
+          <a class="link-live" href="#" target="_blank" rel="noopener">Live Site</a>
+          <a class="link-code" href="#" target="_blank" rel="noopener">Source</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- TEMPLATE CARD 2 -->
+    <div class="project-card template">
+      <div class="project-thumb"><span>Isi gambar di sini</span></div>
+      <div class="project-body">
+        <h3>Nama Project</h3>
+        <p>Deskripsi singkat project kamu di sini.</p>
+        <div class="project-links">
+          <a class="link-live" href="#" target="_blank" rel="noopener">Live Site</a>
+          <a class="link-code" href="#" target="_blank" rel="noopener">Source</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- TEMPLATE CARD 3 -->
+    <div class="project-card template">
+      <div class="project-thumb"><span>Isi gambar di sini</span></div>
+      <div class="project-body">
+        <h3>Nama Project</h3>
+        <p>Deskripsi singkat project kamu di sini.</p>
+        <div class="project-links">
+          <a class="link-live" href="#" target="_blank" rel="noopener">Live Site</a>
+          <a class="link-code" href="#" target="_blank" rel="noopener">Source</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <p>© 2026 Natalia Agustin. Built with <em>care</em> in Singkawang.</p>
+</footer>
+
+<script>
+/* =========================================================
+   AUTO-FETCH PROJECT FOLDERS FROM GITHUB REPO
+   Repo: Nataliaagustin01/natalia-web-portofolio
+   Any folder in repo root that contains an index.html
+   is treated as a project and shown as a card.
+========================================================= */
+const GH_USER = 'Nataliaagustin01';
+const GH_REPO = 'natalia-web-portofolio';
+const PAGES_BASE = `https://${GH_USER.toLowerCase()}.github.io/${GH_REPO}`;
+
+// folder names to ignore even if they contain index.html accidentally
+const IGNORE_FOLDERS = ['assets', 'images', 'img', 'css', 'js', 'fonts', '.github'];
+
+const grid = document.getElementById('projectGrid');
+const status = document.getElementById('galleryStatus');
+
+function formatTitle(name){
+  return name.replace(/[-_]/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
+}
+
+function buildCard(folder){
+  const liveUrl = `${PAGES_BASE}/${folder}/`;
+  const codeUrl = `https://github.com/${GH_USER}/${GH_REPO}/tree/main/${folder}`;
+  const shotUrl = `https://image.thum.io/get/width/600/crop/800/noanimate/${liveUrl}`;
+
+  const card = document.createElement('div');
+  card.className = 'project-card';
+  card.innerHTML = `
+    <div class="project-thumb">
+      <img src="${shotUrl}" alt="${formatTitle(folder)} preview" loading="lazy"
+           onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+      <div class="thumb-fallback" style="display:none;">${formatTitle(folder)}</div>
+    </div>
+    <div class="project-body">
+      <h3>${formatTitle(folder)}</h3>
+      <p>Project website dari folder <code>${folder}</code> di repo GitHub.</p>
+      <div class="project-links">
+        <a class="link-live" href="${liveUrl}" target="_blank" rel="noopener">Live Site</a>
+        <a class="link-code" href="${codeUrl}" target="_blank" rel="noopener">Source</a>
+      </div>
+    </div>`;
+  return card;
+}
+
+async function loadProjects(){
+  try{
+    const res = await fetch(`https://api.github.com/repos/${GH_USER}/${GH_REPO}/contents/`);
+    if (!res.ok) throw new Error('GitHub API error: ' + res.status);
+    const items = await res.json();
+
+    const folders = items.filter(it =>
+      it.type === 'dir' && !IGNORE_FOLDERS.includes(it.name.toLowerCase())
+    );
+
+    if (folders.length === 0){
+      status.textContent = 'Belum ada folder project di repo ini.';
+      return;
+    }
+
+    // check each folder for an index.html before showing it as a project
+    const checks = await Promise.all(folders.map(async (f) => {
+      try{
+        const r = await fetch(`https://api.github.com/repos/${GH_USER}/${GH_REPO}/contents/${f.name}/index.html`);
+        return r.ok ? f.name : null;
+      }catch(e){ return null; }
+    }));
+
+    const validFolders = checks.filter(Boolean);
+    status.remove();
+
+    if (validFolders.length === 0){
+      grid.innerHTML = '<p class="gallery-status">Belum ada folder yang berisi index.html.</p>';
+      return;
+    }
+
+    validFolders.forEach(folder => grid.appendChild(buildCard(folder)));
+
+  }catch(err){
+    status.textContent = 'Gagal memuat project dari GitHub. Coba refresh, atau cek koneksi/rate limit API.';
+    console.error(err);
+  }
+}
+
+loadProjects();
+</script>
+</body>
+</html>
